@@ -1,0 +1,8 @@
+theia@theia-u23052159:/home/project$ curl -c cookies.txt -X POST http://localhost:5000/customer/login \
+-H "Content-Type: application/json" \
+-d '{"username":"gyanwi","password":"1234"}'
+
+theia@theia-u23052159:/home/project$ curl -b cookies.txt -X PUT http://localhost:5000/customer/auth/review/1 \ttp://localhost:
+-H "Content-Type: application/json" \
+-d '{"review":"AmazingBook"}'
+{"message":"Review successfully added/modified","reviews":{}}

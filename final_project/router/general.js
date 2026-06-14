@@ -1,43 +1,72 @@
-const express = require('express');
-let books = require("./booksdb.js");
-let isValid = require("./auth_users.js").isValid;
-let users = require("./auth_users.js").users;
-const public_users = express.Router();
+const axios = require("axios");
+
+const BASE_URL = "http://localhost:5000";
 
 
-public_users.post("/register", (req,res) => {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
-});
+// ==========================
+// TASK 10: Get all books
+// ==========================
+const getAllBooks = async () => {
+    try {
+        const res = await axios.get(`${BASE_URL}/`);
+        console.log("\nTASK 10 - All Books:\n");
+        console.log(res.data);
+    } catch (err) {
+        console.error("Task 10 Error:", err.message);
+    }
+};
 
-// Get the book list available in the shop
-public_users.get('/',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
-});
 
-// Get book details based on ISBN
-public_users.get('/isbn/:isbn',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
- });
-  
-// Get book details based on author
-public_users.get('/author/:author',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
-});
+// ==========================
+// TASK 11: Get book by ISBN
+// ==========================
+const getBookByISBN = async (isbn) => {
+    try {
+        const res = await axios.get(`${BASE_URL}/isbn/${isbn}`);
+        console.log("\nTASK 11 - Book by ISBN:\n");
+        console.log(res.data);
+    } catch (err) {
+        console.error("Task 11 Error:", err.message);
+    }
+};
 
-// Get all books based on title
-public_users.get('/title/:title',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
-});
 
-//  Get book review
-public_users.get('/review/:isbn',function (req, res) {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
-});
+// ==========================
+// TASK 12: Get books by author
+// ==========================
+const getBooksByAuthor = async (author) => {
+    try {
+        const res = await axios.get(`${BASE_URL}/author/${author}`);
+        console.log("\nTASK 12 - Books by Author:\n");
+        console.log(res.data);
+    } catch (err) {
+        console.error("Task 12 Error:", err.message);
+    }
+};
 
-module.exports.general = public_users;
+
+// ==========================
+// TASK 13: Get books by title
+// ==========================
+const getBooksByTitle = async (title) => {
+    try {
+        const res = await axios.get(`${BASE_URL}/title/${title}`);
+        console.log("\nTASK 13 - Books by Title:\n");
+        console.log(res.data);
+    } catch (err) {
+        console.error("Task 13 Error:", err.message);
+    }
+};
+
+
+// ==========================
+// RUN ALL TASKS
+// ==========================
+const runTasks = async () => {
+    await getAllBooks();
+    await getBookByISBN(1);
+    await getBooksByAuthor("Chinua Achebe");
+    await getBooksByTitle("Things Fall Apart");
+};
+
+runTasks();

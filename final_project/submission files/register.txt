@@ -1,0 +1,8 @@
+theia@theia-u23052159:/home/projectcurl -X POST http://localhost:5000/register \ \ 
+-H "Content-Type: application/json" \
+-d '{"username":"gyanwi","password":"1234"}'
+{"message":"User successfully registered. Now you can login"}theia@theia-u23052159
+
+theia@theia-u23052159:/home/project$ curl -X POST http://localhost:5000/register \
+-H "Content-Type: application/json" \
+-d '{"username":"gyanwi","password":"1234"}'

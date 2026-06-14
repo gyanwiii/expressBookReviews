@@ -1,0 +1,4 @@
+theia@theia-u23052159:/home/project$ curl -X POST http://localhost:5000/customer/login \
+-H "Content-Type: application/json" \
+-d '{"username":"gyanwi","password":"1234"}'
+{"message":"Customer successfully logged in"}

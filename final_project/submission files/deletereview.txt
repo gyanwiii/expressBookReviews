@@ -1,0 +1,7 @@
+theia@theia-u23052159:/home/project$ rm cookies.txt
+
+curl -c cookies.txt -X POST http://localhost:5000/customer/login \
+-H "Content-Type: application/json" \
+-d '{"username":"gyanwi","password":"1234"}'
+theia@theia-u23052159:/home/project$ curl -b cookies.txt -X DELETE http://localhost:5000/customer/auth/review/1 http://localhost:5000
+{"message":"Review successfully deleted"}
